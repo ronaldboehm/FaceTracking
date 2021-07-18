@@ -24,7 +24,7 @@ namespace SmoothTrack
             _cancelToken = _cancelSource.Token;
         }
 
-        public void Start(Action<FaceTrackingData> callback)
+        public void Start(Action<HeadTrackingData> callback)
         {
             if (_cancelToken.IsCancellationRequested)
                 return;
@@ -37,7 +37,7 @@ namespace SmoothTrack
             _cancelSource.Cancel();
         }
 
-        private void Listen(Action<FaceTrackingData> callback)
+        private void Listen(Action<HeadTrackingData> callback)
         {
             IPAddress ipAddress =
                 Dns.GetHostEntry(Dns.GetHostName()).AddressList.Where(addr => (addr.AddressFamily == AddressFamily.InterNetwork)).First();
@@ -57,7 +57,7 @@ namespace SmoothTrack
                     continue;
 
                 Buffer.BlockCopy(bytes, 0, asDoubles, 0, bytes.Length); // TODO Buffer.MemoryCopy directly to FaceTrackingData?
-                callback(new FaceTrackingData()
+                callback(new HeadTrackingData()
                 {
                     X = asDoubles[0],
                     Y = asDoubles[1],

@@ -29,8 +29,8 @@ namespace DemoApp
             _listener = new SmoothTrackListener(4242);
         }
 
-        private FaceTrackingData _lastData;
-        private FaceTrackingData _offset;
+        private HeadTrackingData _lastData;
+        private HeadTrackingData _offset;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {

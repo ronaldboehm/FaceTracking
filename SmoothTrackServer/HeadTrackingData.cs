@@ -1,6 +1,6 @@
 ﻿namespace SmoothTrack
 {
-    public struct FaceTrackingData
+    public struct HeadTrackingData
     {
         public double X;
         public double Y;
@@ -9,8 +9,8 @@
         public double Pitch;
         public double Roll;
 
-        public static FaceTrackingData operator +(FaceTrackingData one, FaceTrackingData other) =>
-            new FaceTrackingData
+        public static HeadTrackingData operator +(HeadTrackingData one, HeadTrackingData other) =>
+            new HeadTrackingData
             {
                 X = one.X + other.X,
                 Y = one.Y + other.Y,
@@ -20,8 +20,8 @@
                 Roll  = one.Roll  + other.Roll,
             };
 
-            public static FaceTrackingData operator -(FaceTrackingData one, FaceTrackingData other) =>
-            new FaceTrackingData
+            public static HeadTrackingData operator -(HeadTrackingData one, HeadTrackingData other) =>
+            new HeadTrackingData
             {
                 X = one.X - other.X,
                 Y = one.Y - other.Y,
